@@ -1,13 +1,13 @@
 # On Windows, send a ctrl-break to a process
 
-This sample repo is a standalone version of the test in the signal package of golang.
+Standalone version of the test in the `signal` package of golang.
 
 #### Instructions:
 
 ```
 go get github.com/iwdgo/sigint-windows
 cd <path to sigint-windows>
-go run ctrlbreak.go
+go run signal_windows.go
 cat ctrlbreak.log # type ctrlbreak.log
 ```
 

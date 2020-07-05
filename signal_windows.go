@@ -1,6 +1,6 @@
-// Copyright 2012 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// Package signal-windows starts a sub-process and sends a control break to stop it.
+
+// +build windows
 
 package main
 
@@ -9,6 +9,7 @@ import (
 	"log"
 	"os"
 	"os/exec"
+	"path/filepath"
 	"syscall"
 	"time"
 )
@@ -30,12 +31,11 @@ func sendCtrlBreak(pid int) {
 
 func main() {
 
-	// compile it
 	name := "ctrlbreak"
 	src := name + ".go"
 	exe := name + ".exe"
 	defer os.Remove(exe)
-	o, err := exec.Command("go", "build", "-o", exe, src).CombinedOutput()
+	o, err := exec.Command("go", "build", "-o", exe, filepath.Join(name, src)).CombinedOutput()
 	if err != nil {
 		log.Fatalf("Failed to compile: %v\n%v", err, string(o))
 	}
