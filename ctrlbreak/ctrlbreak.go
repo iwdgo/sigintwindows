@@ -2,7 +2,6 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"os"
 	"os/signal"
@@ -10,17 +9,19 @@ import (
 )
 
 func main() {
-	// When using go run, os.Stdout is held and output of sub process does not display
-	// TODO Use a logger
-	logger := "ctrlbreak.log"
-	_ = os.Remove(logger)
-	f, err := os.Create(logger)
+	// If parent process dies before emitting, no log is available on what happened
+	f, err := os.Create("ctrlbreak" + ".log")
 	if err != nil {
 		log.Fatalf("Failed to create %v: %v", "sublog", err)
 	}
-	defer f.Close()
+	log.SetOutput(f)
+	defer func() {
+		if err := f.Close(); err != nil {
+			log.Fatal(err)
+		}
+	}()
 
-	_, _ = fmt.Fprintln(f, "sub-process started")
+	log.Printf("sub-process %v started", os.Getpid())
 	c := make(chan os.Signal, 10)
 	signal.Notify(c)
 	select {
@@ -28,9 +29,9 @@ func main() {
 		if s != os.Interrupt {
 			log.Fatalf("Wrong signal received: got %q, want %q\n", s, os.Interrupt)
 		}
-		_, _ = fmt.Fprintln(f, "exit on", s)
+		log.Printf("graceful exit on %v", s)
 	case <-time.After(10 * time.Second):
-		log.Fatalf("Timeout waiting for Ctrl+Break\n")
+		// returns exit code 1 to parent process
+		log.Fatalf("Timeout waiting for Ctrl+Break")
 	}
-	_, _ = fmt.Fprintln(f, "graceful exit")
 }
