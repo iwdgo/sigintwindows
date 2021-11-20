@@ -3,7 +3,7 @@
 //go:build windows
 // +build windows
 
-package main
+package sigintwindows
 
 import (
 	"syscall"

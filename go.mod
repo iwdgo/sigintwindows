@@ -1,3 +1,3 @@
-module github.com/iwdgo/sigint-windows
+module github.com/iwdgo/sigintwindows
 
 go 1.14

@@ -30,9 +30,9 @@ Exit code `0xC000013A` is the exit value `STATUS_CONTROL_C_EXIT` returned by the
 ### Use as a module
 
 ```
-import "github.com/iwdgo/sigint-windows"
+import "github.com/iwdgo/sigintwindows"
 
-SendCtrlBreak(<some pid>)
+sigintwindows.SendCtrlBreak(<some pid>)
 ```
 
 
@@ -56,6 +56,6 @@ https://docs.microsoft.com/en-us/windows/win32/procthread/process-creation-flags
 
 ### Versions
 
-`v0.2.0` Importable module  
+`v0.2.1` Importable module  
 `v0.1.0` Standalone experiment  
 Standalone version of the test `TestCtrlBreak` of the `signal` package of golang.
