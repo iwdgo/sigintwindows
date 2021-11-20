@@ -1,4 +1,4 @@
-// Package signal-windows sends a control break to another process.
+// Package signalwindows sends a control break to another process.
 
 //go:build windows
 // +build windows

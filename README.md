@@ -1,13 +1,15 @@
-[![Go Reference](https://pkg.go.dev/badge/iwdgo/sigint-windows.svg)](https://pkg.go.dev/iwdgo/sigint-windows)
-[![Go Report Card](https://goreportcard.com/badge/github.com/iwdgo/sigint-windows)](https://goreportcard.com/report/github.com/iwdgo/sigint-windows)
+[![Go Reference](https://pkg.go.dev/badge/iwdgo/sigintwindows.svg)](https://pkg.go.dev/iwdgo/sigintwindows)
+[![Go Report Card](https://goreportcard.com/badge/github.com/iwdgo/sigintwindows)](https://goreportcard.com/report/github.com/iwdgo/sigintwindows)
 
-# On Windows, send a ctrl-break to a process
+# On Windows, sends a ctrl-break to a process
 
 ## How to
 
 ### Experiment
 
 ```
+$ go get -d github.com/iwdgo/sigintwindows
+$ cd <download path>
 $ go test -v
 === RUN   TestSendCtrlBreak
     signal_windows_test.go:40: waiting 5 seconds before goroutine. No log to find.
@@ -56,6 +58,6 @@ https://docs.microsoft.com/en-us/windows/win32/procthread/process-creation-flags
 
 ### Versions
 
-`v0.2.1` Importable module  
+`v0.2.2` Importable module  
 `v0.1.0` Standalone experiment  
 Standalone version of the test `TestCtrlBreak` of the `signal` package of golang.
