@@ -1,5 +1,8 @@
-[![Go Reference](https://pkg.go.dev/badge/iwdgo/sigintwindows.svg)](https://pkg.go.dev/iwdgo/sigintwindows)
+[![Go Reference](https://pkg.go.dev/badge/github.com/iwdgo/sigintwindows.svg)](https://pkg.go.dev/github.com/iwdgo/sigintwindows)
 [![Go Report Card](https://goreportcard.com/badge/github.com/iwdgo/sigintwindows)](https://goreportcard.com/report/github.com/iwdgo/sigintwindows)
+[![codecov](https://codecov.io/gh/iwdgo/sigintwindows/branch/master/graph/badge.svg)](https://codecov.io/gh/iwdgo/sigintwindows)
+
+[![Build Status](https://app.travis-ci.com/iwdgo/sigintwindows.svg?branch=master)](https://app.travis-ci.com/iwdgo/sigintwindows)
 
 # On Windows, sends a ctrl-break to a process
 
@@ -48,6 +51,8 @@ https://stackoverflow.com/questions/55092139/gracefully-terminate-a-process-on-w
 ### Golang
 
 https://github.com/golang/go/issues/29744
+https://github.com/golang/go/issues/42311
+https://github.com/golang/go/issues/46354
 
 ### About Ctrl-Break on Windows
 
@@ -56,7 +61,7 @@ https://docs.microsoft.com/en-us/windows/console/generateconsolectrlevent
 https://docs.microsoft.com/en-us/windows/console/ctrl-c-and-ctrl-break-signals  
 https://docs.microsoft.com/en-us/windows/win32/procthread/process-creation-flags  
 
-### Versions
+### Version history
 
 `v0.2.2` Importable module  
 `v0.1.0` Standalone experiment  
