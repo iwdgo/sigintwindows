@@ -56,7 +56,7 @@ func TestSendCtrlBreak(t *testing.T) {
 		if err == nil {
 			scanner := bufio.NewScanner(f)
 			for scanner.Scan() {
-				fmt.Println(scanner.Text()) // token in unicode-char
+				fmt.Println(scanner.Text())
 			}
 		} else {
 			t.Error("cannot access log")
@@ -64,5 +64,22 @@ func TestSendCtrlBreak(t *testing.T) {
 	}
 	if err != nil {
 		t.Fatalf("Program exited with error: %v\n", err)
+	}
+}
+
+func TestSendCtrlBreakNoPid(t *testing.T) {
+	var nonExistingPid uint32 = 999000
+	const READ_CONTROL uint32 = 0x00020000
+	var err error
+	for err == nil {
+		_, err = syscall.OpenProcess(READ_CONTROL, false, nonExistingPid)
+		nonExistingPid++
+		if nonExistingPid > 999999 {
+			t.Skipf("no invalid process id found")
+		}
+	}
+	err = SendCtrlBreak(int(nonExistingPid))
+	if err == nil {
+		t.Fatalf("Sending Ctrl Break with an invalid process id did not fail")
 	}
 }
