@@ -30,7 +30,7 @@ func main() {
 			log.Fatalf("Wrong signal received: got %q, want %q\n", s, os.Interrupt)
 		}
 		log.Printf("graceful exit on %v", s)
-	case <-time.After(10 * time.Second):
+	case <-time.After(20 * time.Second):
 		// returns exit code 1 to parent process
 		log.Fatalf("Timeout waiting for Ctrl+Break")
 	}
