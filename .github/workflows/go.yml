@@ -22,7 +22,7 @@ jobs:
         run: go install -v ./...
 
       - name: Test
-        run: go test -cover -coverprofile coverage.out -covermode=atomic -race ./...
+        run: go test -cover -coverprofile coverage.out -covermode=atomic -race
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
