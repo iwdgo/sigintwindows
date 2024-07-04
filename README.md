@@ -50,9 +50,9 @@ https://stackoverflow.com/questions/55092139/gracefully-terminate-a-process-on-w
 
 ### Golang
 
-https://github.com/golang/go/issues/29744
-https://github.com/golang/go/issues/42311
-https://github.com/golang/go/issues/46354
+[golang/go#29744](https://github.com/golang/go/issues/29744)  
+[golang/go#42311](https://github.com/golang/go/issues/42311)  
+[golang/go#46354](https://github.com/golang/go/issues/46354)  
 
 ### About Ctrl-Break on Windows
 
