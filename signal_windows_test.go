@@ -21,8 +21,8 @@ func TestSendCtrlBreak(t *testing.T) {
 	src := processToSignal + ".go"
 	exe := processToSignal + ".exe"
 	defer func() {
-		if err := os.Remove(exe); err != nil {
-			t.Fatal(err)
+		if err := os.Remove(filepath.Join(processToSignal, exe)); err != nil {
+			t.Log(err)
 		}
 	}()
 	o, err := exec.Command("go", "install", filepath.Join(processToSignal, src)).CombinedOutput()
