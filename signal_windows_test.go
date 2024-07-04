@@ -25,7 +25,7 @@ func TestSendCtrlBreak(t *testing.T) {
 			t.Fatal(err)
 		}
 	}()
-	o, err := exec.Command("go", "install", "-o", exe, filepath.Join(processToSignal, src)).CombinedOutput()
+	o, err := exec.Command("go", "install", filepath.Join(processToSignal, src)).CombinedOutput()
 	if err != nil {
 		t.Fatalf("Failed to compile: %v\n%v", err, string(o))
 	}
