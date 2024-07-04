@@ -33,8 +33,7 @@ func TestSendCtrlBreak(t *testing.T) {
 	cmd.SysProcAttr = &syscall.SysProcAttr{
 		CreationFlags: syscall.CREATE_NEW_PROCESS_GROUP,
 	}
-	err = cmd.Start()
-	if err != nil {
+	if err := cmd.Start(); err != nil {
 		t.Fatalf("Start failed: %v", err)
 	}
 	// If interrupted here while cmd waits, "exit status STATUS_CONTROL_C_EXIT" displays
@@ -45,13 +44,11 @@ func TestSendCtrlBreak(t *testing.T) {
 	go func() {
 		t.Logf("waiting %d seconds in goroutine. Log displays unless interrupted.\n", d)
 		time.Sleep(d * time.Second)
-		err = SendCtrlBreak(cmd.Process.Pid)
-		if err != nil {
+		if err := SendCtrlBreak(cmd.Process.Pid); err != nil {
 			t.Log(err)
 		}
 	}()
-	errw := cmd.Wait()
-	if errw != nil {
+	if err := cmd.Wait(); err != nil {
 		t.Errorf("Wait failed: %v", errw)
 	}
 	if testing.Verbose() {
