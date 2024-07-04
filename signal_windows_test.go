@@ -50,7 +50,7 @@ func TestSendCtrlBreak(t *testing.T) {
 			t.Log(err)
 		}
 	}()
-	errw = cmd.Wait()
+	errw := cmd.Wait()
 	if errw != nil {
 		t.Errorf("Wait failed: %v", errw)
 	}
