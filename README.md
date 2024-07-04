@@ -2,7 +2,7 @@
 [![Go Report Card](https://goreportcard.com/badge/github.com/iwdgo/sigintwindows)](https://goreportcard.com/report/github.com/iwdgo/sigintwindows)
 [![codecov](https://codecov.io/gh/iwdgo/sigintwindows/branch/master/graph/badge.svg)](https://codecov.io/gh/iwdgo/sigintwindows)
 
-[![Build Status](https://app.travis-ci.com/iwdgo/sigintwindows.svg?branch=master)](https://app.travis-ci.com/iwdgo/sigintwindows)
+[![Go](https://github.com/iwdgo/sigintwindows/actions/workflows/go.yml/badge.svg)](https://github.com/iwdgo/sigintwindows/actions/workflows/go.yml)
 
 # On Windows, sends a ctrl-break to a process
 
