@@ -49,7 +49,7 @@ func TestSendCtrlBreak(t *testing.T) {
 		}
 	}()
 	if err := cmd.Wait(); err != nil {
-		t.Errorf("Wait failed: %v", errw)
+		t.Errorf("Wait failed: %v", err)
 	}
 	if testing.Verbose() {
 		f, err := os.Open("ctrlbreak.log")
